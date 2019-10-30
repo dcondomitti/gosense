@@ -7,6 +7,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/davecgh/go-spew/spew"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -298,6 +299,7 @@ func (s *WyzeSense) GetSensorList() ([]string, error) {
 	}
 
 	if len(p.payload) != 1 {
+		spew.Dump(p)
 		panic("Payload is not 1!")
 	}
 	count := p.payload[0]
